@@ -252,3 +252,12 @@ tr.shown td.details-control {
 #filterInputs > div {
   float: left;
 }
+
+.edit-icon-style {
+  font-size: 12px;
+  padding:0.05rem .2rem;
+}
+
+table {
+  font-size: 14px;
+}

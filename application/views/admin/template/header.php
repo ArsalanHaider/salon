@@ -2,10 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />  
+
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>GIEDA | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/fontawesome-free/css/all.min.css');?>">
   <!-- Ionicons -->
@@ -31,6 +35,8 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/datepicker/css/datepicker.css');?>">
    <!-- stellar nav -->
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/stellarnav/css/stellarnav.min.css');?>">
+  
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <?php
@@ -43,64 +49,47 @@
 
   <!-- Navbar -->
    <header class="main-header ">
-    <div class="stellarnav light left desktop">
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-white p-3">
+         <div class="nav navbar-nav" style="text-align: center;">
+               <h4> <a href="<?php echo base_url('allottee');?>" class="nav-item nav-link active">Allotees</a>
+                <a href="<?php echo base_url('plot');?>" class="nav-item nav-link">Plots</a>
+                <a href="<?php echo base_url('phase');?>" class="nav-item nav-link">Phases</a>
+                <a href="<?php echo base_url('user');?>" class="nav-item nav-link">Users</a>
+                <a href="<?php echo base_url('welcome/sign_out'); ?>" class="nav-item nav-link">Logout</a></h4>
+            </div>
+             </div>
+    </div>
+  </div>
 
-      <ul style="display: block;">
 
-        <li>
-           <a class="navbar-brand" href="#"">
-            <img src="<?php echo base_url('assets/images/logo.png');?>" alt="GIEDA" height="40">
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo base_url('allottee/form');?>">
-            <i class="fa fa-cog icon-settings" aria-hidden="true">
-              </i>
-           <span class="text-center link-settting"> 
-              Forms  </span>
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo base_url('allottee');?>">
-            <i class="fa fa-cog icon-settings" aria-hidden="true">
-              </i>
-           <span class="text-center link-settting"> 
-               Allottees       </span>
-          </a>
-        </li>
-       <li>
-          <a href="<?php echo base_url('plot');?>">
-            <i class="fa fa-cog icon-settings" aria-hidden="true">
-              </i>
-           <span class="text-center link-settting"> 
-                Plots    </span>
-           </a>
-        </li>
-        <li class="">
-          <a href="<?php echo base_url('phase');?>">
-            <i class="fa fa-cog icon-settings" aria-hidden="true">
-              </i>
-           <span class="text-center link-settting"> 
-                Phases            </span>
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo base_url('user');?>">
-            <i class="fa fa-cog icon-settings" aria-hidden="true">
-              </i>
-           <span class="text-center link-settting"> 
-              Users      </span>
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo base_url('welcome/sign_out'); ?>">
-            <i class="fa fa-cog icon-settings" aria-hidden="true">
-              </i>
-           <span class="text-center link-settting"> 
-              Logout    </span>
-          </a>
-        </li>
-      </ul>
+
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-success">
+        <a href="<?php echo base_url('');?>" class="navbar-brand">GIEDA</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+            <br/>
+            <div class="nav navbar-nav">
+                <a href="<?php echo base_url('allottee/manage_forms');?>" class="nav-item nav-link active">Forms</a>
+                <a href="<?php echo base_url('allottee');?>" class="nav-item nav-link active">Allotees</a>
+                <a href="<?php echo base_url('plot');?>" class="nav-item nav-link">Plots</a>
+                <a href="<?php echo base_url('phase');?>" class="nav-item nav-link">Phases</a>
+                <a href="<?php echo base_url('user');?>" class="nav-item nav-link">Users</a>
+
+            </div>
+            <form class="form-inline ml-auto">
+                <a href="<?php echo base_url('welcome/sign_out'); ?>" class="nav-item nav-link">Logout</a>
+               
+            </form>
+        </div>
+    </nav>
+   
 
     
   

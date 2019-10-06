@@ -7,9 +7,8 @@
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('phase'); ?>">Manage Phase</a></li>
-         <li class="breadcrumb-item active">Add Phase</li>
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Add User</li>
         </ol>
       </div>
     </div>
@@ -24,14 +23,14 @@
             <!-- Horizontal Form -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Add Phase</h3>
+                <h3 class="card-title">Add User</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <?php   
 
               $formAttr = array('id'=> 'userForm', 'class'=>'');
-              echo form_open_multipart('phase/add_phase_data', $formAttr);
+              echo form_open_multipart('phase/update', $formAttr);
 
               ?>
                 <div class="card-body">
@@ -40,10 +39,14 @@
                     <?php   echo form_label(' Title:');  ?>
                     <?php  
 
-                    $data = array('name'=>'title','id'=>'title', 'class'=>'form-control','type'=>'text');
+                    $data = array('name'=>'title','id'=>'title', 'class'=>'form-control','type'=>'text','value'=>$phase[0]->title);
 
                     echo form_input($data);
 
+                    $data = array('name'=>'edit_id','type'=>'hidden','value'=>$phase[0]->id);
+
+                    echo form_input($data);
+                    
                     ?>
                     </div>
 
@@ -54,7 +57,7 @@
                     <?php  
                     echo form_label('Description');
 
-                    $data = array('name'=>'description','id'=>'description', 'class'=>'form-control','type'=>'text');
+                    $data = array('name'=>'description','id'=>'description', 'class'=>'form-control','type'=>'text', 'value'=>$phase[0]->description);
 
                     echo form_input($data);
 
@@ -68,7 +71,7 @@
                     <?php  
                     echo form_label('Start Date');
 
-                    $data = array('name'=>'start_date','id'=>'start_date', 'class'=>'datepicker form-control','type'=>'text');
+                    $data = array('name'=>'start_date','id'=>'start_date', 'class'=>'datepicker form-control','type'=>'text','value'=>$phase[0]->start_date);
 
                     echo form_input($data);
 
@@ -79,7 +82,7 @@
                     <?php  
                     echo form_label('End Date');
 
-                    $data = array('name'=>'end_date','id'=>'end_date', 'class'=>'datepicker form-control','type'=>'text');
+                    $data = array('name'=>'end_date','id'=>'end_date', 'class'=>'datepicker form-control','type'=>'text','value'=>$phase[0]->completion_date);
 
                     echo form_input($data);
 

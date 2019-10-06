@@ -43,8 +43,15 @@ class User extends CI_Controller {
 		$this->load->model('Crud_model');
 		$img  = $this->Crud_model->do_upload_picture('phase_picture', './uploads/images/');
 		$data['image']  =$img;
-		$this->Crud_model->insert_data('users',$data);
-
+		$res=$this->Crud_model->insert_data('users',$data);
+		if($res==true)
+		{
+			$this->session->set_flashdata('true', 'Data Added Successfully');
+		}
+	  else
+		  {
+			$this->session->set_flashdata('err', "Error");
+		  }
 		redirect('user');
 	}
 
@@ -59,11 +66,12 @@ class User extends CI_Controller {
           $length = intval($this->input->get("length"));
 		$users = $this->Crud_model->fetch_record('users');
 		$i =0;
-		$links =  "<a   href='' class='btn btn-warning btn-xs mr5' >
+	
+		foreach ($users as $user) {
+			$links =  "<a   href='".base_url('user/edit/'.$user->id)."' class='btn btn-warning btn-xs mr5 edit-icon-style' >
                     <i class='fa fa-edit'></i>
                     </a>
-                    <a   href='' class='btn btn-danger btn-xs'><i class='fa fa-trash' aria-hidden='true'></i></a>";
-		foreach ($users as $user) {
+                    <a   href='".base_url('user/delete/'.$user->id)."' class='btn btn-danger btn-xs edit-icon-style'><i class='fa fa-trash' aria-hidden='true'></i></a>";
   			$i++;
   			$data[]  = array(
   				$i,
@@ -84,5 +92,51 @@ class User extends CI_Controller {
             );
 
 	    echo json_encode($output);
+	}
+
+	public function edit($id){
+		$data['page_title'] = "Update User";
+		$data['main_view'] = 'admin/edit_user';
+		$this->load->model('Crud_model');
+		$data['<user></user>'] = $this->Crud_model->fetch_record_by_id('users', $id);
+
+		$this->load->view('admin/index', $data);
+	}
+
+	public function update_user() {
+		
+		$id  = $this->input->post('edit_id');
+		$data['name'] =  $this->input->post('name');
+		$data['email'] =  $this->input->post('email');
+		$data['password'] = sha1($this->input->post('password'));
+		$data['role_name'] =  $this->input->post('role');
+		// $data['role_name'] =  $this->input->post('description');
+		$this->load->model('Crud_model');
+		$img  = $this->Crud_model->do_upload_picture('phase_picture', './uploads/images/');
+		$data['image']  =$img;
+		$res=$this->Crud_model->edit_record_id('users', $id, $data);
+		if($res==true)
+		{
+			$this->session->set_flashdata('true', 'Data Updated Successfully');
+		}
+	  else
+		  {
+			$this->session->set_flashdata('err', "Error");
+		  }
+		redirect('user');
+	}
+
+	public function delete_user($id) {
+		$this->load->model('Crud_model');
+  		$res=$this->Crud_model->delete_record('users', $id);
+		  if($res==true)
+		  {
+  			$this->session->set_flashdata('true', 'Data Deleted Successfully');
+		  }
+		else
+			{
+ 			 $this->session->set_flashdata('err', "Error");
+			}
+  		redirect('user');
 	}
 }

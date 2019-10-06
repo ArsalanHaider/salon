@@ -35,7 +35,9 @@
       <div>
         <img src="<?php echo base_url('assets/images/logo.png');?>" height="200">
       </div>
-      <a href="../../index2.html"><b>Gwader Industrial State Development Authority GIEDA</b></a>
+      <a href="#"><b>Gawadar Industrial Estate Development Authority</b></a>
+      
+
     </div>
 
       <?php 
@@ -69,12 +71,13 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-8">
+                <div class="col-4">
                   <div class="icheck-primary">
                    
                   </div>
                 </div>
                 <!-- /.col -->
+
                 <div class="col-4">
                    <?php
                       $data = array('class'=>'btn btn-primary btn-block btn-flat btn-lg','name'=>'btn_submit_signin','value'=>'Sign In ', 'style'=>'background:#008455 !important; border-color:#008455 !important;');
@@ -82,6 +85,12 @@
                       echo form_submit($data);
                    ?>
                 </div>
+                   <div class="col-4">
+                  <div class="icheck-primary">
+                   
+                  </div>
+                </div>
+
                 <!-- /.col -->
               </div>
             </form>

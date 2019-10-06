@@ -7,10 +7,8 @@
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('user'); ?>">Manage User</a></li>
-        
-          <li class="breadcrumb-item active">Add User</li>
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Update User</li>
         </ol>
       </div>
     </div>
@@ -25,14 +23,14 @@
             <!-- Horizontal Form -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Add User</h3>
+                <h3 class="card-title">Update User</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <?php   
 
               $formAttr = array('id'=> 'userForm', 'class'=>'');
-              echo form_open_multipart('user/add_user', $formAttr);
+              echo form_open_multipart('user/update_user', $formAttr);
 
               ?>
                 <div class="card-body">
@@ -41,7 +39,10 @@
                     <?php   echo form_label(' Name:');  ?>
                     <?php  
 
-                    $data = array('name'=>'name','id'=>'name', 'class'=>'form-control','type'=>'text');
+                    $data = array('name'=>'name','id'=>'name', 'class'=>'form-control','type'=>'text','value'=> $user[0]->name);
+
+                    echo form_input($data);
+                     $data = array('name'=>'edit_id','type'=>'hidden','value'=> $user[0]->id);
 
                     echo form_input($data);
 
@@ -55,7 +56,7 @@
                     <?php  
                     echo form_label('Email');
 
-                    $data = array('name'=>'email','id'=>'email', 'class'=>'form-control','type'=>'email');
+                    $data = array('name'=>'email','id'=>'email', 'class'=>'form-control','type'=>'email','value'=> $user[0]->email);
 
                     echo form_input($data);
 
@@ -66,7 +67,7 @@
                     <?php  
                     echo form_label('Password');
 
-                    $data = array('name'=>'password','id'=>'password', 'class'=>'form-control','type'=>'password');
+                    $data = array('name'=>'password','id'=>'password', 'class'=>'form-control','type'=>'password','value'=> $user[0]->password);
 
                     echo form_input($data);
 
@@ -77,23 +78,23 @@
                   <div class="form-group clearfix">
                     <?php   echo form_label('Role:'); ?>
                     <label class="radio-container d-inline">
-                      <input type="radio" name="role"  value="admin"> <span class="checkmark"></span>
+                      <input type="radio" name="role"  value="admin" <?php if($user[0]->role_name =='admin'){ echo "checked='true'";}?>  > <span class="checkmark"></span>
                       Admin
                     </label>
                     <div class="d-inline">
                        <label class="radio-container d-inline">
-                      <input type="radio" name="role"  value="data entry"> <span class="checkmark"></span>
+                      <input type="radio" name="role"  value="data entry" <?php if($user[0]->role_name =='date entry'){ echo "checked='true'";}?> > <span class="checkmark" ></span>
                       Data Entry
                     </label>
                     </div>
                    <div class="d-inline">
                        <label class="radio-container d-inline">
-                      <input type="radio" name="role"  value="accounts"> <span class="checkmark"></span>
+                      <input type="radio" name="role"  value="accounts"  <?php if($user[0]->role_name =='accounts'){ echo "checked='true'";}?>> <span class="checkmark"></span>
                       Accounts
                     </label>
                     </div>
                    <div class="d-inline">
-                       <label class="radio-container d-inline">
+                       <label class="radio-container d-inline"  <?php if($user[0]->role_name =='gm'){ echo "checked='true'";}?>>
                       <input type="radio" name="role"  value="gm"> <span class="checkmark"></span>
                       GM
                     </label>
@@ -120,7 +121,7 @@
                   <!-- <button type="submit" class="btn btn-info">Sign in</button> -->
                   <!-- <button type="submit" class="btn btn-info float-right">Cancel</button> -->
                   <?php   
-                  $data= array('class' =>'btn btn-info float-right', 'name'=>'btn_add_user' ,'value' => 'Add User');
+                  $data= array('class' =>'btn btn-info float-right', 'name'=>'btn_add_user' ,'value' => 'Update User');
                   echo form_submit($data);
                   ?>
                 </div>

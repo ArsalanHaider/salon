@@ -567,9 +567,9 @@ class Crud_model extends CI_Model
         }
     }
 
-    public function edit_record_id($args, $data)
+    public function edit_record_id($table_name, $id, $data)
     {
-        extract($args);
+        // extract($args);
         $this->db->where('id', $id);
         $this->db->update($table_name, $data);
         return TRUE;

@@ -5,7 +5,7 @@
             <div class="pull float-left">
                  <ol class="breadcrumb float-left">
                     <li class="breadcrumb-item">
-                        <a href="<?php echo base_url('homepage'); ?>"><i class="fa fa-dashboard"></i> Dashboard </a>
+                        <a href="<?php echo base_url(''); ?>"><i class="fa fa-dashboard"></i> Dashboard </a>
                     </li>
                     <li class="breadcrumb-item active">Allottees</li>
                 </ol>
@@ -16,7 +16,10 @@
                 <a href="<?php echo base_url('allottee/add_allottees_form'); ?>" class="btn btn-info btn-flat"><i class="fa fa-plus-square" aria-hidden="true"></i>
                     <?php echo "Add Allottee  "; ?>
                 </a>
-                <button onclick="printDiv('print-section')" class="btn btn-default btn-flat pull-right "><i class="fa fa-print pull-left"></i> Print / Pdf</button>
+                    <a class="btn  btn-success filter-btn" filter-slide="false">
+                        More Filters<i class="fas fa-filter"></i>
+                        </a>
+                <button onclick="printDiv('print-section')" class="btn btn-default btn-flat pull-right "><i class="fa fa-print pull-left"></i> Print Report</button>
             </div>
         </div>
     </div>
@@ -38,13 +41,7 @@
                 ?>
                 <?php //echo form_open('expense/',$attributes); ?>
                 <div class="row no-print">
-                    <div class ="col-sm-12">
-                      <div class="filter-button">
-                        <a class="btn  btn-success filter-btn" filter-slide="false">
-                         <i class="fas fa-filter"></i>
-                        </a>
-                     </div>
-                    </div>
+                
                     <div id="filterInputs" class="col-sm-12">
                       <div class="col-md-3 ">
                           <div class="form-group">
@@ -131,7 +128,22 @@
                     </tr>
                 </thead>
               </table>
+
             </div>
+            <?php 
+   if($this->session->flashdata('true')){
+ ?>
+   <div class="alert alert-success alert-dismissible fade show"> 
+     <?php  echo $this->session->flashdata('true'); ?>
+     <button type="button" class="close" data-dismiss="alert">&times;</button>
+<?php    
+} else if($this->session->flashdata('err')){
+?>
+ <div class = "alert alert-danger alert-dismissible fade show">
+   <?php echo $this->session->flashdata('err'); ?>
+   <button type="button" class="close" data-dismiss="alert">&times;</button>
+ </div>
+<?php } ?>
             <!-- /.card-body -->
           </div>
     </div>

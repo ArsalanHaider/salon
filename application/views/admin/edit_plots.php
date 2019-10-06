@@ -7,9 +7,7 @@
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="<?php echo base_url(''); ?>">Home</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('plot'); ?>">Manage Plot</a></li>
-        
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item active">Add Plot</li>
         </ol>
       </div>
@@ -29,11 +27,10 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              
               <?php   
 
               $formAttr = array('id'=> 'userForm', 'class'=>'');
-              echo form_open_multipart('plot/add_plot', $formAttr);
+              echo form_open_multipart('plot/update_plot', $formAttr);
 
               ?>
                 <div class="card-body">
@@ -48,7 +45,7 @@
                         $options[$row->id]  = $row->title;
                       }
 
-                    echo form_dropdown('phase',$options,'',$data);
+                    echo form_dropdown('phase',$options,$plot[0]->phase_id,$data);
 
                     ?>
                     </div>
@@ -60,7 +57,10 @@
                     <?php  
                     echo form_label('Title');
 
-                    $data = array('name'=>'title','id'=>'title', 'class'=>'form-control','type'=>'text');
+                    $data = array('name'=>'title','id'=>'title', 'class'=>'form-control','type'=>'text','value'=>$plot[0]->title);
+
+                    echo form_input($data);
+                     $data = array('name'=>'edit_id','type'=>'hidden','value'=>$plot[0]->id);
 
                     echo form_input($data);
 
@@ -70,7 +70,7 @@
                     <?php  
                     echo form_label('Plot Type');
 
-                    $data = array('name'=>'plot_type','id'=>'plot_type', 'class'=>'form-control','type'=>'text');
+                    $data = array('name'=>'plot_type','id'=>'plot_type', 'class'=>'form-control','type'=>'text','value'=>$plot[0]->plot_type);
 
                     echo form_input($data);
 
@@ -80,7 +80,7 @@
                     <?php  
                     echo form_label('Size');
 
-                    $data = array('name'=>'size','id'=>'size', 'class'=>'form-control','type'=>'text');
+                    $data = array('name'=>'size','id'=>'size', 'class'=>'form-control','type'=>'text','value'=>$plot[0]->size);
 
                     echo form_input($data);
 
@@ -94,7 +94,7 @@
                     <?php  
                     echo form_label('Description');
 
-                    $data = array('name'=>'description','id'=>'description', 'class'=>'form-control','type'=>'text');
+                    $data = array('name'=>'description','id'=>'description', 'class'=>'form-control','type'=>'text', 'value'=>$plot[0]->description);
 
                     echo form_input($data);
 
@@ -108,7 +108,7 @@
                     <?php  
                     echo form_label('Total Price');
 
-                    $data = array('name'=>'total_price','id'=>'total_price', 'class'=>'form-control','type'=>'number');
+                    $data = array('name'=>'total_price','id'=>'total_price', 'class'=>'form-control','type'=>'number','value'=>$plot[0]->total_price);
 
                     echo form_input($data);
 
@@ -119,7 +119,7 @@
                     <?php  
                     echo form_label('Total Installments');
 
-                    $data = array('name'=>'total_installments','id'=>'total_installments', 'class'=>'form-control','type'=>'number');
+                    $data = array('name'=>'total_installments','id'=>'total_installments', 'class'=>'form-control','type'=>'number','value'=>$plot[0]->total_installments);
 
                     echo form_input($data);
 
@@ -129,7 +129,7 @@
                     <?php  
                     echo form_label('Installment Amount');
 
-                    $data = array('name'=>'per_installment','id'=>'per_installment', 'class'=>'form-control','type'=>'number');
+                    $data = array('name'=>'per_installment','id'=>'per_installment', 'class'=>'form-control','type'=>'number','value'=>$plot[0]->per_installment);
 
                     echo form_input($data);
 
@@ -139,7 +139,7 @@
                     <?php  
                     echo form_label('Down Payment');
 
-                    $data = array('name'=>'down_payment','id'=>'end_date', 'class'=>'form-control','type'=>'number');
+                    $data = array('name'=>'down_payment','id'=>'end_date', 'class'=>'form-control','type'=>'number','value'=>$plot[0]->down_payment);
 
                     echo form_input($data);
 
@@ -160,9 +160,8 @@
                   <!-- <button type="submit" class="btn btn-info">Sign in</button> -->
                   <!-- <button type="submit" class="btn btn-info float-right">Cancel</button> -->
                   <?php   
-                  $data= array('class' =>'btn btn-info float-right', 'name'=>'btn_add_user' ,'value' => 'Add Plot');
+                  $data= array('class' =>'btn btn-info float-right', 'name'=>'btn_add_user' ,'value' => 'Update Plot');
                   echo form_submit($data);
-                  
                   ?>
                 </div>
                 <!-- /.card-footer -->

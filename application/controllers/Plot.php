@@ -35,14 +35,23 @@ class Plot extends CI_Controller {
 		$data['total_installments']  = $this->input->post('total_installments');
 		$data['per_installment']  = $this->input->post('per_installment');
 		$data['plot_type']  = $this->input->post('plot_type');
+		$data['description']  = $this->input->post('description');
+		$data['down_payment']  = $this->input->post('down_payment');
 
 		// $data['role_name'] =  $this->input->post('description');
 		$this->load->model('Crud_model');
 		// $img  = $this->Crud_model->do_upload_picture('user_picture', './uploads/images/');
 		// $data['image']  =$img;
-		$this->Crud_model->insert_data('plots',$data);
-
-		redirect('plot');
+		$res = $this->Crud_model->insert_data('plots',$data);
+		if($res==true)
+		  {
+  			$this->session->set_flashdata('true', 'Data Added Successfully');
+		  }
+		else
+			{
+ 			 $this->session->set_flashdata('err', "Error");
+			}
+	redirect('plot');
 	}
 
 
@@ -53,6 +62,7 @@ class Plot extends CI_Controller {
 		$data['phases'] = $this->Crud_model->fetch_record('phases');
 		$data['title']  = "Add Plot";
 		$data['main_view'] ="admin/add_plot";
+		
 		$this->load->view('admin/index', $data);
 	}
 
@@ -65,11 +75,12 @@ class Plot extends CI_Controller {
           $length = intval($this->input->get("length"));
 		$plots = $this->Crud_model->fetch_record('plots');
 		$i =0;
-		$links =  "<a   href='' class='btn btn-warning btn-xs mr5' >
+	
+		foreach ($plots as $plot) {
+			$links =  "<a   href='".base_url('plot/edit/'.$plot->id)."' class='btn btn-warning btn-xs mr5 edit-icon-style' >
                     <i class='fa fa-edit'></i>
                     </a>
-                    <a   href='' class='btn btn-danger btn-xs'><i class='fa fa-trash' aria-hidden='true'></i></a>";
-		foreach ($plots as $plot) {
+                    <a   href='".base_url('plot/delete/'.$plot->id)."' class='btn btn-danger btn-xs edit-icon-style'><i class='fa fa-trash' aria-hidden='true'></i></a>";
   			$i++;
   			$data[]  = array(
   				$i,
@@ -92,5 +103,56 @@ class Plot extends CI_Controller {
             );
 
 	    echo json_encode($output);
+	}
+
+
+	public function edit($id){
+		$data['page_title'] = "Update Plots";
+		$data['main_view'] = 'admin/edit_plots';
+		$this->load->model('Crud_model');
+		$data['plot'] = $this->Crud_model->fetch_record_by_id('plots', $id);
+		$data['phases'] = $this->Crud_model->fetch_record('phases');
+
+		$this->load->view('admin/index', $data);
+	}
+
+	public function update_plot() {
+		
+		$id  = $this->input->post('edit_id');
+		$data['phase_id'] = $this->input->post('phase');
+		$data['title']  = $this->input->post('title');
+		$data['description']  = $this->input->post('description');
+		$data['size']  = $this->input->post('size');
+		$data['total_price']  = $this->input->post('total_price');
+		$data['total_installments']  = $this->input->post('total_installments');
+		$data['per_installment']  = $this->input->post('per_installment');
+		$data['plot_type']  = $this->input->post('plot_type');
+		$data['down_payment']  = $this->input->post('down_payment');
+		// $data['role_name'] =  $this->input->post('description');
+		$this->load->model('Crud_model');
+		$res=$this->Crud_model->edit_record_id('plots', $id, $data);
+		if($res==true)
+		{
+			$this->session->set_flashdata('true', 'Data Updated Successfully');
+		}
+	  else
+		  {
+			$this->session->set_flashdata('err', "Error");
+		  }
+		redirect('plot');
+	}
+
+	public function delete($id) {
+		$this->load->model('Crud_model');
+  		$res=$this->Crud_model->delete_record('plots', $id);
+		  if($res==true)
+		  {
+  			$this->session->set_flashdata('true', 'Data Deleted Successfully');
+		  }
+		else
+			{
+ 			 $this->session->set_flashdata('err', "Error");
+			}
+  		redirect('plot');
 	}
 }

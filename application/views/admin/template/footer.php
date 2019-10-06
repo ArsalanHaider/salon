@@ -1,5 +1,8 @@
- <footer class="main-footer">
-    <strong>Copyright &copy; 2019 <a href="#">GIEDA</a>.</strong>
+
+ 
+
+<footer class="main-footer">
+    <strong>Copyright &copy; <script>document.write( new Date().getUTCFullYear() );</script> <a href="<?php echo base_url('');?>">GIEDA</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0.0-beta.1

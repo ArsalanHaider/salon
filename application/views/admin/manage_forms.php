@@ -6,27 +6,28 @@
                     <li class="breadcrumb-item">
                         <a href="<?php echo base_url(''); ?>"><i class="fa fa-dashboard"></i> Dashboard </a>
                     </li>
-                    <li class="breadcrumb-item active">Plots</li>
+                    <li class="breadcrumb-item active">Allottee Forms</li>
                 </ol>
             </div>
         </div> 
         <div class="col-md-6">
-            <div class="pull float-right">
-                <a href="<?php echo base_url('plot/add_plots_form'); ?>" class="btn btn-info btn-flat"><i class="fa fa-plus-square" aria-hidden="true"></i>
-                    <?php echo "Add Plots  "; ?>
+        <div class="pull float-right">
+                <a href="<?php echo base_url('allottee/add_allottees_form'); ?>" class="btn btn-info btn-flat"><i class="fa fa-plus-square" aria-hidden="true"></i>
+                    <?php echo "Register Allottee Forms  "; ?>
                 </a>
                 <button onclick="printDiv('print-section')" class="btn btn-default btn-flat pull-right "><i class="fa fa-print pull-left"></i> Print / Pdf</button>
             </div>
         </div>
     </div>
 </section>
+
    <!-- Main content -->
 <section class="content">
   <div class="row">
     <div class="col-12">
        <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Plots</h3>
+              <h3 class="card-title">Allottee Forms</h3>
         
 
             </div>
@@ -36,16 +37,24 @@
                     //$attributes = array('id'=>'Sales_form','method'=>'post','class'=>'');
                 ?>
                 <?php //echo form_open('expense/',$attributes); ?>
-              
+                
              <?php //echo form_close(); ?> 
 
-              <table id="users" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
-              
+              <table id="allottees" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                <tfoot>
+                  <tr>
+                    <?php 
+                       foreach ($table_headings_allottees as $heading) {
+                        echo "<th>".$heading."</th>";
+                        } 
+                      ?>
+                  </tr>
+                </tfoot>  
                 <thead>
                     <tr>
                       <!-- <th></th> -->
                       <?php 
-                       foreach ($table_headings_plots as $heading) {
+                       foreach ($table_headings_allottees as $heading) {
                         echo "<th>".$heading."</th>";
                         } 
                       ?>
@@ -53,7 +62,6 @@
                 </thead>
               </table>
             </div>
-            <!-- /.card-body -->
             <?php 
    if($this->session->flashdata('true')){
  ?>
@@ -68,6 +76,7 @@
    <button type="button" class="close" data-dismiss="alert">&times;</button>
  </div>
 <?php } ?>
+            <!-- /.card-body -->
           </div>
     </div>
   </div>
