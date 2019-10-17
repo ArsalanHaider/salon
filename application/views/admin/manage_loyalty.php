@@ -6,27 +6,31 @@
                     <li class="breadcrumb-item">
                         <a href="<?php echo base_url(''); ?>"><i class="fa fa-dashboard"></i> Dashboard </a>
                     </li>
-                    <li class="breadcrumb-item active">Plots</li>
+                    <li class="breadcrumb-item active"></li>
                 </ol>
             </div>
         </div> 
         <div class="col-md-6">
             <div class="pull float-right">
-                <a href="<?php echo base_url('plot/add_plots_form'); ?>" class="btn btn-info btn-flat"><i class="fa fa-plus-square" aria-hidden="true"></i>
-                    <?php echo "Add Plots  "; ?>
+                <a href="<?php echo base_url('loyalty/settings'); ?>" class="btn btn-info btn-flat"><i class="fa fa-plus-square" aria-hidden="true"></i>
+                    <?php echo "Settings"; ?>
                 </a>
-                <button onclick="printDiv('print-section')" class="btn btn-default btn-flat pull-right "><i class="fa fa-print pull-left"></i> Print / Pdf</button>
+                <a href="<?php echo base_url('loyalty/manage_points_log'); ?>" class="btn btn-info btn-flat"><i class="fa fa-plus-square" aria-hidden="true"></i>
+                    <?php echo "Points Log"; ?>
+                </a>
+               
             </div>
         </div>
     </div>
 </section>
+
    <!-- Main content -->
 <section class="content">
   <div class="row">
     <div class="col-12">
        <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Plots</h3>
+              <h3 class="card-title">Loyalty Reward Program</h3>
         
 
             </div>
@@ -45,7 +49,7 @@
                     <tr>
                       <!-- <th></th> -->
                       <?php 
-                       foreach ($table_headings_plots as $heading) {
+                       foreach ($table_headings_loyaltys as $heading) {
                         echo "<th>".$heading."</th>";
                         } 
                       ?>
@@ -68,9 +72,6 @@
    <button type="button" class="close" data-dismiss="alert">&times;</button>
  </div>
 <?php } ?>
-
-
-
           </div>
     </div>
   </div>

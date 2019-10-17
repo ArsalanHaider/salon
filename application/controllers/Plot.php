@@ -116,7 +116,7 @@ class Plot extends CI_Controller {
 		$this->load->view('admin/index', $data);
 	}
 
-	public function update_plot() {
+	public function update() {
 		
 		$id  = $this->input->post('edit_id');
 		$data['phase_id'] = $this->input->post('phase');

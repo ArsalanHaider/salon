@@ -30,7 +30,7 @@
               <?php   
 
               $formAttr = array('id'=> 'userForm', 'class'=>'');
-              echo form_open_multipart('user/update_user', $formAttr);
+              echo form_open_multipart('user/update', $formAttr);
 
               ?>
                 <div class="card-body">
@@ -42,7 +42,8 @@
                     $data = array('name'=>'name','id'=>'name', 'class'=>'form-control','type'=>'text','value'=> $user[0]->name);
 
                     echo form_input($data);
-                     $data = array('name'=>'edit_id','type'=>'hidden','value'=> $user[0]->id);
+
+                    $data = array('name'=>'edit_id','type'=>'hidden','value'=> $user[0]->id);
 
                     echo form_input($data);
 

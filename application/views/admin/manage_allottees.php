@@ -108,15 +108,7 @@
              <?php //echo form_close(); ?> 
 
               <table id="allottees" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
-                <tfoot>
-                  <tr>
-                    <?php 
-                       foreach ($table_headings_allottees as $heading) {
-                        echo "<th>".$heading."</th>";
-                        } 
-                      ?>
-                  </tr>
-                </tfoot>  
+              
                 <thead>
                     <tr>
                       <!-- <th></th> -->

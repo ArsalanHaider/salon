@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>GIEDA</title>
+  <title>salon</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -35,7 +35,7 @@
       <div>
         <img src="<?php echo base_url('assets/images/logo.png');?>" height="200">
       </div>
-      <a href="#"><b>Gawadar Industrial Estate Development Authority</b></a>
+      
       
 
     </div>

@@ -95,17 +95,17 @@ class User extends CI_Controller {
 	}
 
 	public function edit($id){
-		$data['page_title'] = "Update User";
-		$data['main_view'] = 'admin/edit_user';
+		$data['page_title'] = "Update Users";
+		$data['main_view'] = 'admin/edit_users';
 		$this->load->model('Crud_model');
-		$data['<user></user>'] = $this->Crud_model->fetch_record_by_id('users', $id);
+		$data['user'] = $this->Crud_model->fetch_record_by_id('users', $id);
 
 		$this->load->view('admin/index', $data);
 	}
 
-	public function update_user() {
+	public function update() {
 		
-		$id  = $this->input->post('edit_id');
+		//$id  = $this->input->post('edit_id');
 		$data['name'] =  $this->input->post('name');
 		$data['email'] =  $this->input->post('email');
 		$data['password'] = sha1($this->input->post('password'));
@@ -126,7 +126,7 @@ class User extends CI_Controller {
 		redirect('user');
 	}
 
-	public function delete_user($id) {
+	public function delete($id) {
 		$this->load->model('Crud_model');
   		$res=$this->Crud_model->delete_record('users', $id);
 		  if($res==true)

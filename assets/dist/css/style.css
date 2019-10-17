@@ -185,12 +185,12 @@ label {
 
 
 td.details-control {
-    background: url("http://localhost/gieda/assets/images/open-icon.png") no-repeat center center;
+    background: url("http://localhost/salon/assets/images/open-icon.png") no-repeat center center;
     cursor: pointer;
     background-size:30px; 
 }
 tr.shown td.details-control {
-    background:url("http://localhost/gieda/assets/images/close-icon.png") no-repeat center center;
+    background:url("http://localhost/salon/assets/images/close-icon.png") no-repeat center center;
     background-size:30px; 
 }
 

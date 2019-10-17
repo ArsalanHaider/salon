@@ -391,7 +391,7 @@ class Allottee extends CI_Controller {
   		$data['title']  = "Allottees";
 		$data['main_view'] ="admin/manage_forms";
 		$data['table_headings_allottees'] = [
-			"#",
+			
 			'Form Number',
 			'Name',
 			'Father Name',
@@ -409,7 +409,7 @@ class Allottee extends CI_Controller {
   	public function delete_allottee($id) {
 
   		$this->load->model('Crud_model');
-  		$res$this->Crud_model->delete_record('allottees', $id);
+  		$res=$this->Crud_model->delete_record('allottees', $id);
 		  if($res==true)
 		  {
   			$this->session->set_flashdata('true', 'Data Deleted Successfully');

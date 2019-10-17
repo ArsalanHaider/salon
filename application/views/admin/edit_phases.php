@@ -8,7 +8,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Add User</li>
+          <li class="breadcrumb-item active">Update Phases</li>
         </ol>
       </div>
     </div>
@@ -23,7 +23,7 @@
             <!-- Horizontal Form -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Add User</h3>
+                <h3 class="card-title">Update Phases</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -109,7 +109,7 @@
                   <!-- <button type="submit" class="btn btn-info">Sign in</button> -->
                   <!-- <button type="submit" class="btn btn-info float-right">Cancel</button> -->
                   <?php   
-                  $data= array('class' =>'btn btn-info float-right', 'name'=>'btn_add_user' ,'value' => 'Add Phase');
+                  $data= array('class' =>'btn btn-info float-right', 'name'=>'btn_add_user' ,'value' => 'Update Phase');
                   echo form_submit($data);
                   ?>
                 </div>

@@ -6,7 +6,7 @@
 
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>GIEDA | Dashboard</title>
+  <title>salon | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   
 
@@ -39,12 +39,7 @@
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-<?php
- if($this->uri->segment(1) == "allottee") {
 
-      $this->load->view('admin/allottee_filter_list');
-    }
-?>  
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -53,11 +48,9 @@
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-white p-3">
          <div class="nav navbar-nav" style="text-align: center;">
-               <h4> <a href="<?php echo base_url('allottee');?>" class="nav-item nav-link active">Allotees</a>
-                <a href="<?php echo base_url('plot');?>" class="nav-item nav-link">Plots</a>
-                <a href="<?php echo base_url('phase');?>" class="nav-item nav-link">Phases</a>
-                <a href="<?php echo base_url('user');?>" class="nav-item nav-link">Users</a>
-                <a href="<?php echo base_url('welcome/sign_out'); ?>" class="nav-item nav-link">Logout</a></h4>
+               <a href="<?php echo base_url('loyalty');?>" class="nav-item nav-link">Loyalty Program</a>
+               <a href="<?php echo base_url('user');?>" class="nav-item nav-link">Users</a>
+               <a href="<?php echo base_url('welcome/sign_out'); ?>" class="nav-item nav-link">Logout</a></h4>
             </div>
              </div>
     </div>
@@ -66,7 +59,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-success">
-        <a href="<?php echo base_url('');?>" class="navbar-brand">GIEDA</a>
+        <a href="<?php echo base_url('');?>" class="navbar-brand">salon</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse"
       data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -76,11 +69,9 @@
         <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
             <br/>
             <div class="nav navbar-nav">
-                <a href="<?php echo base_url('allottee/manage_forms');?>" class="nav-item nav-link active">Forms</a>
-                <a href="<?php echo base_url('allottee');?>" class="nav-item nav-link active">Allotees</a>
-                <a href="<?php echo base_url('plot');?>" class="nav-item nav-link">Plots</a>
-                <a href="<?php echo base_url('phase');?>" class="nav-item nav-link">Phases</a>
-                <a href="<?php echo base_url('user');?>" class="nav-item nav-link">Users</a>
+       
+                <a href="<?php echo base_url('loyalty');?>" class="nav-item nav-link">Loyalty Program</a>
+               <a href="<?php echo base_url('user');?>" class="nav-item nav-link">Users</a>
 
             </div>
             <form class="form-inline ml-auto">

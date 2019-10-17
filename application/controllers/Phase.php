@@ -75,7 +75,7 @@ class Phase extends CI_Controller {
 	    echo json_encode($output);
 	}
 
-	public function  get_plots($phase_id) {
+	public function get_plots($phase_id) {
 
 		$this->load->model('Crud_model');
 		$data['id']  = $phase_id;
